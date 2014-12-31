@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="login_white">#FFFFFF</color>
+    <color name="login_deepgreen">#06c1af</color>
+    <color name="login_lightgreen">#1cdfcb</color>
+    <color name="mywallet_white">#FFFFFF</color>
+    <color name="mywallet_red">#DC143C</color>
+    <color name="mywallet_blue">#3399cc</color>
+    <color name="mywallet_deepgreen">#06c1af</color>
+    <color name="mywallet_gray">#CDC9C9</color>
+    <color name="mywallet_black">#000000</color>
+    <color name="mywallet_orange">#ffcc99</color>
+    <color name="mywallet_withdraw_gray">#f0efed</color>
+</resources>

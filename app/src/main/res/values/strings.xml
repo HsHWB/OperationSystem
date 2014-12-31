@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">操作系统</string>
+    <string name="title_section1">进程创建</string>
+    <string name="title_section2">时间片轮转调度</string>
+    <string name="title_section3">优先数调度</string>
+    <string name="title_section4">最短进程优先</string>
+    <string name="title_section5">最短剩余时间优先</string>
+    <string name="navigation_drawer_open">设置</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
