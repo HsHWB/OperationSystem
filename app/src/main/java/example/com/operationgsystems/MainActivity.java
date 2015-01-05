@@ -184,8 +184,8 @@ public class MainActivity extends Activity
                 }
             }
         };
-    }
 
+    }
     //使用数组形式操作
     class SpinnerSelectedListener implements AdapterView.OnItemSelectedListener {
 
@@ -204,11 +204,11 @@ public class MainActivity extends Activity
         }
         @Override
         public void onFinish() {
-            buttonCaptcha.setText("结束");
+            //buttonCaptcha.setText("结束");
         }
         @Override
         public void onTick(long finished){
-            buttonCaptcha.setText(finished/1000);
+            //buttonCaptcha.setText(finished/1000);
         }
     }
 

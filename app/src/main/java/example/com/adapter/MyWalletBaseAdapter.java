@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.content.Context;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -15,13 +16,17 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import example.com.operationgsystems.MainActivity;
 import example.com.operationgsystems.R;
 
 public class MyWalletBaseAdapter extends BaseAdapter{
 	
 	private HashMap<Integer, HashMap<String, String>> hashMap;
 	private ListView listView;
+    public TextView textTime;
+    public CountDownTimer tr;
 	private Context context;
+    private  View convert = null;
 	private int screenWidth;
 	private int screenHeight;
 	private int black = 0xff000000;
@@ -53,11 +58,12 @@ public class MyWalletBaseAdapter extends BaseAdapter{
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(int position, final View convertView, final ViewGroup parent) {
 		// TODO Auto-generated method stub
-		
+//        convert = View.inflate(context, R.layout.activity_main, Contact);
+        final View cv = convertView;
 		RelativeLayout rlLayout =new RelativeLayout(context);
-		AbsListView.LayoutParams params = new AbsListView.LayoutParams(screenWidth, screenHeight/20);
+		final AbsListView.LayoutParams params = new AbsListView.LayoutParams(screenWidth, screenHeight/20);
 		rlLayout.setLayoutParams(params);
 
         RelativeLayout.LayoutParams lp1 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -92,10 +98,23 @@ public class MyWalletBaseAdapter extends BaseAdapter{
 
         RelativeLayout.LayoutParams lp4 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        TextView textTime = new TextView(context);
+        textTime = new TextView(context);
         textTime.setTextSize(16);
         textTime.setId(position*100+4);
-        textTime.setText(hashMap.get(position).get("time"));
+        final int id = position*100+4;
+//        textTime.setText(hashMap.get(position).get("time"));
+        tr = new CountDownTimer(15000,1000){
+            public void onFinish() {
+                //buttonCaptcha.setText("结束");
+                textTime.setText("结束");
+                ((TextView)parent.findViewById(id)).setText("结束");
+            }
+            public void onTick(long finished){
+                //buttonCaptcha.setText(finished/1000);
+//                textTime.setText(String.valueOf(finished/1000));
+                ((TextView)parent.findViewById(id)).setText(String.valueOf(finished/1000));
+            }
+        }.start();
         textTime.setTextColor(black);
         lp4.setMargins(500,0,0,0);
         rlLayout.addView(textTime,lp4);
@@ -112,5 +131,19 @@ public class MyWalletBaseAdapter extends BaseAdapter{
 
 		return rlLayout;
 	}
-	
+//    class TimeRound extends CountDownTimer {
+//        public TimeRound(long t1, long t2) {
+//            super(t1, t2);
+//        }
+//        @Override
+//        public void onFinish() {
+//            //buttonCaptcha.setText("结束");
+//            textTime.setText("结束");
+//        }
+//        @Override
+//        public void onTick(long finished){
+//            //buttonCaptcha.setText(finished/1000);
+//            textTime.setText(String.valueOf(finished/1000));
+//        }
+//    }
 }
